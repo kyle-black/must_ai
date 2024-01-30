@@ -4,8 +4,9 @@ from . import views
 
 urlpatterns = [
     path("", views.index, name="index"),
-    path("securitiesdashboard",views.securitiesdashboard, name='securitiesdashboard' )
-    
+    path("securitiesdashboard",views.securitiesdashboard, name='securitiesdashboard' ),
+    path("forexdashboard", views.forexdashboard, name='foexdashboard')
+
 
     # ex: /polls/5/
     #path("<int:question_id>/", views.detail, name="detail"),

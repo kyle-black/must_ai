@@ -24,8 +24,8 @@ def paymentprocess(request):
     return HttpResponse("Must_ai Payment Process")
 
 
-def securitiesdashboard(request):
-    return HttpResponse("Must_ai commodities")
+def securitiesdashboard(request, data):
+    return HttpResponse("Must_ai Securities" % data )
 
 def forexdashboard(request):
     return HttpResponse("Must_ai forex")
