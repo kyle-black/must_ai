@@ -4,6 +4,49 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.http import Http404
 from .models import Question
+import json
+
+import redis
+
+
+def data_pull():
+    r = redis.Redis(
+    host='redis-17905.c326.us-east-1-3.ec2.cloud.redislabs.com',
+    port=17905,
+    password='zHeoOL4uqpzaxTC7YgtuWvq4HRNSsoD0')
+
+    AUDUSD = r.xrange("security:AUDUSD")
+
+    AUDUSD_dict ={}
+
+    for i in AUDUSD:
+      unix = int(i[0].decode('utf-8').replace('-0', ''))
+      data = {k.decode('utf-8'): v.decode('utf-8') for k, v in i[1].items()}
+      AUDUSD_dict[unix] = data
+
+    #print(AUDUSD_dict)
+        
+      
+
+    
+
+    return AUDUSD_dict
+
+
+
+#import redis
+
+'''
+def redis_pull():
+    r = redis.Redis(
+    host='redis-17905.c326.us-east-1-3.ec2.cloud.redislabs.com',
+    port=17905,
+    password='zHeoOL4uqpzaxTC7YgtuWvq4HRNSsoD0')
+
+    AUDUSD = r.xrange("security:AUDUSD")
+
+    return AUDUSD
+'''
 
 
 
@@ -24,8 +67,13 @@ def paymentprocess(request):
     return HttpResponse("Must_ai Payment Process")
 
 
-def securitiesdashboard(request, data):
-    return HttpResponse("Must_ai Securities" % data )
+def securitiesdashboard(request):
+
+    data_dict = data_pull()
+    print(data_dict)
+
+    return render(request, 'must_app/securitiesdashboard.html',{'data_dict':data_dict})
+   # return HttpResponse("Must_ai Securities" % data )
 
 def forexdashboard(request):
     return HttpResponse("Must_ai forex")
