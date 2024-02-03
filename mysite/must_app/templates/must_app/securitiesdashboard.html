@@ -1,8 +1,36 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'must_app/css/styles.css' %}">
+
+
 <h1>tester securities</h1>
 
-<ul>
-  {% for key, val in data_dict.items %}
-  <h1>{{key}}</h1>
-  <h1>{{val}}</h1>
-  {% endfor %}
-</ul>
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Close</th>
+      <th>Up Prob</th>
+      <th>Down Prob</th>
+      <th>Neutral Prob</th>
+      <th>Upper Barrier</th>
+      <th>Lower Barrier</th>
+      <th>Hard Prediction</th>
+      <th>Time</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for key, val in data_dict.items %}
+    <tr>
+      <td>{{ key }}</td>
+      <td>{{ val.close }}</td>
+      <td>{{ val.up_prob }}</td>
+      <td>{{ val.dwn_prob }}</td>
+      <td>{{ val.neutral_prob }}</td>
+      <td>{{ val.upper_barrier }}</td>
+      <td>{{ val.lower_barrier }}</td>
+      <td>{{ val.hard_prediction }}</td>
+      <td>{{ val.time }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>

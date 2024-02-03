@@ -1,0 +1,94 @@
+body {
+    background-color: #333;
+    color: #fff;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background-color: #444;
+    padding: 20px;
+    text-align: center;
+}
+
+main {
+    margin: 20px;
+}
+
+section {
+    background-color: #555;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+/* Other CSS rules */
+
+/* Add lines between rows and columns */
+.table td,
+.table th {
+/*  border: 4px solid #dee2e6;*/
+background-color: #242221fb;
+}
+
+/* Make the away team row light gray */
+.table-away-team {
+  background-color: #2D2D2D; 
+}
+
+/* Add more space between games */
+.table-game-spacing {
+  margin-bottom: 2rem;
+}
+
+.table-centered-data {
+    text-align: center;
+}
+
+
+
+.table-data-spacing {
+    padding: 8px 15px;
+}
+
+.table-equal-width-columns {
+    width: 100%;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+.table-limited-width {
+    max-width: 100%;
+    width: 100%;
+}
+
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+.flex-grow {
+    flex-grow: 1;
+}
+
+.table thead th {
+    background-color: #D95204;
+    color: #fff;
+}
+.table th.matchup,
+.table td.matchup {
+    width: 40%; /* Adjust this value to set the desired width */
+}
+
+footer {
+    background-color: #444;
+    padding: 20px;
+    text-align: center;
+}

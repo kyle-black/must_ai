@@ -5,7 +5,7 @@ from . import views
 urlpatterns = [
     path("", views.index, name="index"),
     path("securitiesdashboard",views.securitiesdashboard, name='securitiesdashboard' ),
-    path("forexdashboard", views.forexdashboard, name='foexdashboard')
+    path("forexdashboard", views.forexdashboard, name='forexdashboard')
 
 
     # ex: /polls/5/
